@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="wrapper">
+            <div class="container">
+                <div class="header__container">
+                    <div class="logo">
+                        Site name
+                    </div>
+
+                    <div class="header__menu">
+                        <nav class="menu">
+                            <li class="menu__item"><a href="#">Page</a></li>
+                            <li class="menu__item"><a href="#">Page</a></li>
+                            <li class="menu__item"><a href="#">Page</a></li>
+                        </nav>
+                        <button class="sendButton" type="button">
+                            Send form
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="wrapper">
+            <section class="container containerSpacing text-center">
+                <div class="contactBlock">
+                    <div class="contactBlock__item">
+
+                        <form name="contactForm" id="contactForm" class="contactForm" action="/handler/" onsubmit="return validateForm()" method="post" draggable="false">
+                            <h1 class="contactBlock__heading">Contact us</h1>
+                            <p class="contactBlock__text">Subheading for description or instructions</p>
+                            <div class="contactBlock__inputs">
+                                <div class="contactBlock__name">
+                                    <div class="contactBlock__container">
+                                        <label class="label__295px">First name</label>
+                                        <input type="text" name="first_name" id="" minlength="3" maxlength="20" title="Довжина імені від 3 до 20 символів" placeholder="Jane" required>
+                                    </div>
+
+                                    <div class="contactBlock__container">
+                                        <label class="label__295px">Last name</label>
+                                        <input type="text" name="last_name" id="" minlength="3" maxlength="20" title="Довжина прізвища від 3 до 20 символів" placeholder="Smitherton" required>
+                                    </div>
+                                </div>
+
+                                <div class="contactBlock__container">
+                                    <label class="label__fullWidth">Email address</label>
+                                    <input type="email" name="email_address" id=""
+                                        placeholder="email@janesfakedomain.net" required>
+                                </div>
+
+                                <div class="contactBlock__container">
+                                    <label class="label__fullWidth">Number</label>
+                                    <input type="tel" name="contact_number" pattern="\+[0-9]{3}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{3}" name="user_number" id="" title="Введіть номер у форматі +380-ХХ-ХХ-ХХ-ХХХ" placeholder="+380-ХХ-ХХ-ХХ-ХХХ" required>
+                                </div>
+
+                                <div class="contactBlock__container">
+                                    <label class="label__fullWidth">Your message</label>
+                                    <textarea autocapitalize="off" class="contactTextArea" rows="1" cols="33" title="Кількість символів для повідомлення до 50" minlength="3" maxlength="50"
+                                        class="" placeholder="Enter your question or message"></textarea>
+                                </div>
+
+                                <input class="contactBlock__submit" type="button" onclick="validateForm()" value="Submit" />
+                            </div>
+                        </form>
+                    </div>
+                    <div class="contactBlock__item">
+                        <div class="background">
+                            <img class="backgroundImg" src="../images/Hero_Image.jpg" alt="background">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+
+        </div>
+    </main>
+
+
+    <footer>
+        <div class="wrapper border-top d-flex">
+            <div class="footer__block d-flex flex-column space-between">
+                <div class="logo">Site name</div>
+                <div class="socials">
+                    <a href="#"><img class="socials__img" src="../images/facebook.png" alt="facebook"></a>
+                    <a href="#"><img class="socials__img" src="../images/linkedIn.png" alt="linkedIn"></a>
+                    <a href="#"><img class="socials__img" src="../images/youtube.png" alt="youtube"></a>
+                    <a href="#"><img class="socials__img" src="../images/instagram.png" alt="instagram"></a>
+
+                </div>
+            </div>
+            <div class="footer__block">
+                <div class="footerMenu">
+                    <div class="footerMenu__block">
+                        <div class="footerMenu__heading">Topic</div>
+                        <div class="footerMenu__item"><a href="#">Page</a></div>
+                        <div class="footerMenu__item"><a href="#">Page</a></div>
+                        <div class="footerMenu__item"><a href="#">Page</a></div>
+                    </div>
+                    <div class="footerMenu__block">
+                        <div class="footerMenu__heading">Topic</div>
+                        <div class="footerMenu__item"><a href="#">Page</a></div>
+                        <div class="footerMenu__item"><a href="#">Page</a></div>
+                        <div class="footerMenu__item"><a href="#">Page</a></div>
+                    </div>
+                    <div class="footerMenu__block">
+                        <div class="footerMenu__heading">Topic</div>
+                        <div class="footerMenu__item"><a href="#">Page</a></div>
+                        <div class="footerMenu__item"><a href="#">Page</a></div>
+                        <div class="footerMenu__item"><a href="#">Page</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+
+</html>
