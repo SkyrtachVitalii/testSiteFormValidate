@@ -43,7 +43,8 @@ p {
 }
 
 .wrapper {
-    width: 1440px;
+    width: 1280px;
+    /* width: 1440px; */
     margin-right: auto;
     margin-left: auto;
     text-align: center;

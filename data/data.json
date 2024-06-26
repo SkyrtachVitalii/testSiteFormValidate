@@ -1,0 +1,68 @@
+{
+    "form": "UJ0tY7eMrhkEjVUkfZiNMq6AOnW5HZLgWGEZr9ekcE7shKwQAyu",
+    "getResultData": "",
+    "products": [
+      {
+        "id": "",
+        "name": "",
+        "costPerItem": "",
+        "amount": "",
+        "description": "",
+        "discount": "",
+        "sku": ""
+      }
+    ],
+    "comment": "",
+    "externalId": "",
+    "fName": "",
+    "lName": "",
+    "mName": "",
+    "phone": "",
+    "email": "",
+    "con_comment": "",
+    "shipping_method": "",
+    "payment_method": "",
+    "shipping_address": "",
+    "novaposhta": {
+      "ServiceType": "",
+      "payer": "",
+      "area": "",
+      "region": "",
+      "city": "",
+      "cityNameFormat": "",
+      "WarehouseNumber": "",
+      "Street": "",
+      "BuildingNumber": "",
+      "Flat": ""
+    },
+    "ukrposhta": {
+      "ServiceType": "",
+      "payer": "",
+      "type": "",
+      "city": "",
+      "WarehouseNumber": "",
+      "Street": "",
+      "BuildingNumber": "",
+      "Flat": ""
+    },
+    "sajt": "",
+    "con_telegram": "",
+    "organizationId": "",
+    "shipping_costs": "",
+    "con_instagramNick": "",
+    "meest": {
+      "ServiceType": "",
+      "payer": "",
+      "area": "",
+      "city": "",
+      "WarehouseNumber": ""
+    },
+    "stockId": "",
+    "prodex24source_full": "",
+    "prodex24source": "",
+    "prodex24medium": "",
+    "prodex24campaign": "",
+    "prodex24content": "",
+    "prodex24term": "",
+    "prodex24page": ""
+  }
