@@ -54,14 +54,14 @@
                                 <div class="contactBlock__name">
                                     <div class="contactBlock__container">
                                         <label for="first_name" class="label__295px">First name</label>
-                                        <input type="text" name="first_name" id="first_name" pattern="^[а-яА-ЯЄ]+$" minlength="3"
+                                        <input type="text" name="first_name" id="first_name"  minlength="3"
                                             maxlength="20" title="Довжина імені від 3 до 20 символів" placeholder="Jane"
                                             required>
                                     </div>
 
                                     <div class="contactBlock__container">
                                         <label for="last_name" class="label__295px">Last name</label>
-                                        <input type="text" name="last_name" id="last_name" pattern="^[а-яА-ЯЄ]+$" minlength="3" maxlength="20"
+                                        <input type="text" name="last_name" id="last_name" minlength="3" maxlength="20"
                                             title="Довжина прізвища від 3 до 20 символів" placeholder="Smitherton"
                                             required>
                                     </div>
@@ -82,12 +82,12 @@
 
                                 <div class="contactBlock__container">
                                     <label class="label__fullWidth">Your message</label>
-                                    <textarea autocapitalize="off" name="contactTextArea" class="contactTextArea" rows="1" cols="33"
+                                    <textarea autocapitalize="off" id="contactTextArea" name="contactTextArea" class="contactTextArea" rows="1" cols="33"
                                         title="Кількість символів для повідомлення до 50" minlength="3" maxlength="50"
                                         class="" placeholder="Enter your question or message"></textarea>
                                 </div>
 
-                                <input class="contactBlock__submit" type="button" onclick="validateForm()" />
+                                <input class="contactBlock__submit" value="Submit" type="button" onclick="validateForm()" />
                             </div>
                         </form>
                     </div>

@@ -3,6 +3,8 @@ function validateForm(){
     let lastName = document.forms["contactForm"]["last_name"].value;
     let emailAddress = document.forms["contactForm"]["email_address"].value;
     let contactNumber = document.forms["contactForm"]["contact_number"].value;
+    let contactTextArea = document.forms["contactForm"]["contactTextArea"].value;
+
 
     if (firstName.length > 20){
         alert("Ви ввели своє ім'я довжино більше ніж 20 символів")
@@ -12,6 +14,8 @@ function validateForm(){
     }
     
     validateEmail(emailAddress);
+    // validateTextArea(contactTextArea);
+    validateFullName(firstName, lastName);
 }
 
 function validateEmail(email){
@@ -20,6 +24,20 @@ function validateEmail(email){
         alert('Ваш email не коректний, перевірте будь-ласка наявність таких символів як".", "@" або наявність пробілів')
     }
     return emailMask.test(email);
+}
+
+function validateFullName(firstName, lastName){
+
+    if (!(/^[а-яa-z]+$/i.test(firstName))){
+        alert("Не валідні дані")
+    }
+    if (!(/^[а-яa-z]+$/i.test(lastName))){
+        alert("Не валідні дані")
+    }
+}
+
+function validateTextArea(contactTextArea){
+    console.log(contactTextArea)
 }
 
 let tel = document.querySelector('#contact_number');
@@ -33,6 +51,16 @@ tel.addEventListener('keypress', e => {
   if(!/\d/.test(e.key))
     e.preventDefault();
 });
+
+// let textArea = document.querySelector('#contactTextArea');
+// textArea.addEventListener('focus', _ => {
+//     console.log(textArea.value)
+//     if(textArea.value.length > 50){
+        
+//     }
+// })
+
+
 
 // $(document).ready(function() {
 //     let ukraineMobileRegex = /^\+380-(39|50|63|66|67|68|73|91|92|93|94|95|96|97|98|99)-\d{2}-\d{2}-\d{3}$/;
@@ -123,4 +151,19 @@ $(document).ready(function() {
             // $(this).val('+380' + value);
         }
     });
+
+    $('#contactTextArea').on('input', function() {
+        let charCount = $(this).val().length;
+        if (charCount > 50) alert("У вас занадто багато символів, обмеження - до 50!!!!")
+    });
+
+    $('#first_name').on('input', function() {
+        let charCount = $(this).val().length;
+        if (charCount > 20) alert("У вас занадто багато символів, обмеження - до 20!!!!")
+    });
+    $('#last_name').on('input', function() {
+        let charCount = $(this).val().length;
+        if (charCount > 20) alert("У вас занадто багато символів, обмеження - до 20!!!!")
+    });
+
 });
