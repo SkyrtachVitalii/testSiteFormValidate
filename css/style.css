@@ -43,14 +43,17 @@ p {
 }
 
 .wrapper {
-    width: 1280px;
+    width: 1440px;
     margin-right: auto;
     margin-left: auto;
+    text-align: center;
+    
 }
 
 .container {
     max-width: 1280px;
     width: 100%;
+    margin: 0 auto;
 }
 
 .d-flex {
@@ -78,11 +81,20 @@ p {
     width: 100%;
 }
 
+.logo{
+    text-align: left;
+}
+
 .header__menu {
     display: flex;
 }
 
 .menu {
+    display: flex;
+    align-items: center;
+}
+
+.menu ul{
     display: flex;
     align-items: center;
 }

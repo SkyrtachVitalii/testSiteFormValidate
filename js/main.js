@@ -14,8 +14,13 @@ function validateForm(){
     }
     
     validateEmail(emailAddress);
-    // validateTextArea(contactTextArea);
     validateFullName(firstName, lastName);
+    console.group("Дані з форми:");
+    console.log(firstName, lastName);
+    console.log(emailAddress);
+    console.log(contactNumber);
+    console.log(contactNumber);
+    console.groupEnd();
 }
 
 function validateEmail(email){
@@ -28,16 +33,12 @@ function validateEmail(email){
 
 function validateFullName(firstName, lastName){
 
-    if (!(/^[а-яa-z]+$/i.test(firstName))){
+    if (!(/^[а-яА-Я]+$/i.test(firstName))){
         alert("Не валідні дані")
     }
-    if (!(/^[а-яa-z]+$/i.test(lastName))){
+    if (!(/^[а-яА-Я]+$/i.test(lastName))){
         alert("Не валідні дані")
     }
-}
-
-function validateTextArea(contactTextArea){
-    console.log(contactTextArea)
 }
 
 let tel = document.querySelector('#contact_number');
@@ -52,13 +53,13 @@ tel.addEventListener('keypress', e => {
     e.preventDefault();
 });
 
-// let textArea = document.querySelector('#contactTextArea');
-// textArea.addEventListener('focus', _ => {
-//     console.log(textArea.value)
-//     if(textArea.value.length > 50){
+let textArea = document.querySelector('#contactTextArea');
+textArea.addEventListener('focus', _ => {
+    console.log(textArea.value)
+    if(textArea.value.length > 50){
         
-//     }
-// })
+    }
+})
 
 
 
@@ -130,27 +131,61 @@ tel.addEventListener('keypress', e => {
 //     });
 // });
 
+function validateNumber(phone){
+    if (phone.startsWith('+38') && !phone.startsWith('+380')) {
+        $(this).val(phone.replace('+38', '+380'));
+    }
+}
+
 $(document).ready(function() {
     let ukraineMobileRegex = /^\+380-(39|50|63|66|67|68|73|91|92|93|94|95|96|97|98|99)-\d{2}-\d{2}-\d{3}$/;
 
-    $('#contact_number').mask('+380-00-00-00-000', {autoclear: false}, {placeholder: '+380-ХХ-ХХ-ХХ-ХХХ'});
+    $('#contact_number').mask('+380-99-99-99-999', {autoclear: false}, {placeholder: '+380-ХХ-ХХ-ХХ-ХХХ'});
 
     $('#contact_number').on('input', function() {
         let value = $(this).val();
+
+        validateNumber(value)
 
         // Перевіряємо, чи введене значення відповідає регулярному виразу для мобільного оператора України
         if (ukraineMobileRegex.test(value)) {
             console.log('Номер введено правильно.');
             // Тут можна виконати додаткові дії, якщо умова виконується
         } else {
-            console.log('Номер не відповідає формату мобільного оператора України.');
-            // Тут можна виконати додаткові дії, якщо умова не виконується
-
-            // Додатково, якщо потрібно, можна виконати автоматичне виправлення номера на підставі маски
-            // Наприклад:
-            // $(this).val('+380' + value);
+            if(value.length == 17 & !ukraineMobileRegex.test(value)){
+                console.log('Номер не відповідає формату мобільного оператора України.');
+                alert("Номер не відповідає формату мобільного оператора України.")
+            }
         }
     });
+
+    $('#contact_number').on('keydown', function(e) {
+        var cursorPosition = this.selectionStart;
+        var phone = $(this).val();
+
+        if (cursorPosition < 4 && (e.key === 'Backspace' || e.key === 'Delete')) {
+            e.preventDefault();
+        }
+
+        // Запобігти видаленню префіксу, якщо частково видалено
+        if (phone.length < 4) {
+            $(this).val('+380');
+        }
+    });
+
+    $('#contactForm').on('submit', function(event) {
+        var phone = $('#phone').val();
+        var phonePattern = /^\+380-\d{2}-\d{2}-\d{2}-\d{3}$/;
+
+        // Перевірка маски
+        if (!phonePattern.test(phone)) {
+            alert('Будь ласка, введіть номер телефону у форматі +380-XX-XX-ХX-XXX.');
+            event.preventDefault();
+        }
+    });
+
+
+
 
     $('#contactTextArea').on('input', function() {
         let charCount = $(this).val().length;
