@@ -11,6 +11,9 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
     </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    
 </head>
 
 <body>
@@ -28,9 +31,9 @@
                             <li class="menu__item"><a href="#">Page</a></li>
                             <li class="menu__item"><a href="#">Page</a></li>
                         </nav>
-                        <button class="sendButton" type="button">
+                        <a class="sendButton" href="./contact.html">
                             Send form
-                        </button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -43,40 +46,48 @@
                 <div class="contactBlock">
                     <div class="contactBlock__item">
 
-                        <form name="contactForm" id="contactForm" class="contactForm" action="/handler/" onsubmit="return validateForm()" method="post" draggable="false">
+                        <form name="contactForm" id="contactForm" class="contactForm" action="/handler/"
+                            onsubmit="return validateForm()" method="post" draggable="false">
                             <h1 class="contactBlock__heading">Contact us</h1>
                             <p class="contactBlock__text">Subheading for description or instructions</p>
                             <div class="contactBlock__inputs">
                                 <div class="contactBlock__name">
                                     <div class="contactBlock__container">
-                                        <label class="label__295px">First name</label>
-                                        <input type="text" name="first_name" id="" minlength="3" maxlength="20" title="Довжина імені від 3 до 20 символів" placeholder="Jane" required>
+                                        <label for="first_name" class="label__295px">First name</label>
+                                        <input type="text" name="first_name" id="first_name" pattern="^[а-яА-ЯЄ]+$" minlength="3"
+                                            maxlength="20" title="Довжина імені від 3 до 20 символів" placeholder="Jane"
+                                            required>
                                     </div>
 
                                     <div class="contactBlock__container">
-                                        <label class="label__295px">Last name</label>
-                                        <input type="text" name="last_name" id="" minlength="3" maxlength="20" title="Довжина прізвища від 3 до 20 символів" placeholder="Smitherton" required>
+                                        <label for="last_name" class="label__295px">Last name</label>
+                                        <input type="text" name="last_name" id="last_name" pattern="^[а-яА-ЯЄ]+$" minlength="3" maxlength="20"
+                                            title="Довжина прізвища від 3 до 20 символів" placeholder="Smitherton"
+                                            required>
                                     </div>
                                 </div>
 
                                 <div class="contactBlock__container">
-                                    <label class="label__fullWidth">Email address</label>
-                                    <input type="email" name="email_address" id=""
+                                    <label for="email_address" class="label__fullWidth">Email address</label>
+                                    <input type="email" name="email_address" id="email_address"
                                         placeholder="email@janesfakedomain.net" required>
                                 </div>
 
                                 <div class="contactBlock__container">
-                                    <label class="label__fullWidth">Number</label>
-                                    <input type="tel" name="contact_number" pattern="\+[0-9]{3}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{3}" name="user_number" id="" title="Введіть номер у форматі +380-ХХ-ХХ-ХХ-ХХХ" placeholder="+380-ХХ-ХХ-ХХ-ХХХ" required>
+                                    <label for="contact_number" class="label__fullWidth">Number</label>
+                                    <input type="tel" name="contact_number" id="contact_number"
+                                        title="Введіть номер у форматі +380-ХХ-ХХ-ХХ-ХХХ"
+                                        placeholder="+380-ХХ-ХХ-ХХ-ХХХ" autocorrect="off" autocapitalize="off" required>
                                 </div>
 
                                 <div class="contactBlock__container">
                                     <label class="label__fullWidth">Your message</label>
-                                    <textarea autocapitalize="off" class="contactTextArea" rows="1" cols="33" title="Кількість символів для повідомлення до 50" minlength="3" maxlength="50"
+                                    <textarea autocapitalize="off" name="contactTextArea" class="contactTextArea" rows="1" cols="33"
+                                        title="Кількість символів для повідомлення до 50" minlength="3" maxlength="50"
                                         class="" placeholder="Enter your question or message"></textarea>
                                 </div>
 
-                                <input class="contactBlock__submit" type="button" onclick="validateForm()" value="Submit" />
+                                <input class="contactBlock__submit" type="button" onclick="validateForm()" />
                             </div>
                         </form>
                     </div>
