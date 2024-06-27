@@ -15,12 +15,6 @@ function validateForm() {
 
     validateEmail(emailAddress);
     validateFullName(firstName, lastName);
-    // console.group("Дані з форми:");
-    // console.log(firstName, lastName);
-    // console.log(emailAddress);
-    // console.log(contactNumber);
-    // console.log(contactNumber);
-    // console.groupEnd();
 
     // sendData(firstName, lastName, contactTextArea, contactNumber, emailAddress)
     sendData();
@@ -123,38 +117,95 @@ $(document).ready(function () {
 
 });
 
+const jsonPlaceHolderUrl = "https://jsonplaceholder.typicode.com/posts";
 
-// function sendData(firstName, lastName, contactTextArea, contactNumber, emailAddress) {
-//     $.ajax({
-//         url: "https://salesme.salesdrive.me/handler/",
-//         type: "POST",
-//         contentType: "application/json",
-//         data: JSON.stringify({
-//             form: "UJ0tY7eMrhkEjVUkfZiNMq6AOnW5HZLgWGEZr9ekcE7shKwQAyu",
-//             getResultData: "",
-//             products: [
-//                 {
-//                     id: 1,
-//                     name: `${firstName + " " + lastName}`,
-//                     costPerItem: 0,
-//                     amount: 0,
-//                     description: textArea,
-//                     discount: 0,
-//                     sku: 459798465
-//                 }
-//             ],
-//             comment: contactTextArea,
-//             phone: contactNumber,
-//             email: emailAddress
-//         }),
-//         success: function (response) {
-//             console.log(response);
-//         },
-//         error: function (error) {
-//             console.error(error);
-//         }
-//     });
-// }
+
+function sendData(firstName, lastName, contactTextArea, contactNumber, emailAddress) {
+    $.ajax({
+        // url: "../php/myCustomServer.php",
+        // url: "https://salesme.salesdrive.me/handler/",
+        url: jsonPlaceHolderUrl,
+        type: "POST",
+        contentType: "application/json",
+        "Access-Control-Allow-Origin": "http://salesme.42web.io",
+        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
+        "Access-Control-Allow-Headers": "Content-Type",
+        data: JSON.stringify({
+            "form": "UJ0tY7eMrhkEjVUkfZiNMq6AOnW5HZLgWGEZr9ekcE7shKwQAyu",
+            "getResultData": "1",
+            "products": [
+                {
+                "id": "34634636",
+                "name": "Тепла підлога",
+                "costPerItem": "500,00",
+                "amount": "1",
+                "description": "у цу  аццу цуцуа цуа цуа цу ццуцуцу цу ацу ц",
+                "discount": "5%",
+                "sku": "24235325"
+                }
+            ],
+            "comment": "sdsdfsd fef esdf dsf sdfs sd",
+            "externalId": "34634636",
+            "fName": "Аіваіва",
+            "lName": "Іцуецн3434",
+            "mName": "Рвварвар",
+            "phone": "0995315874",
+            "email": "qwrty@gmail.com",
+            "con_comment": "",
+            "shipping_method": "Самовивіз",
+            "payment_method": "Післяплата",
+            "shipping_address": "",
+            "novaposhta": {
+                "ServiceType": "",
+                "payer": "",
+                "area": "",
+                "region": "",
+                "city": "",
+                "cityNameFormat": "",
+                "WarehouseNumber": "",
+                "Street": "",
+                "BuildingNumber": "",
+                "Flat": ""
+            },
+            "ukrposhta": {
+                "ServiceType": "",
+                "payer": "",
+                "type": "",
+                "city": "",
+                "WarehouseNumber": "",
+                "Street": "",
+                "BuildingNumber": "",
+                "Flat": ""
+            },
+            "sajt": "http://salesme.42web.io/pages/contact.html",
+            "con_telegram": "",
+            "organizationId": "",
+            "shipping_costs": "",
+            "con_instagramNick": "",
+            "meest": {
+                "ServiceType": "",
+                "payer": "",
+                "area": "",
+                "city": "",
+                "WarehouseNumber": ""
+            },
+            "stockId": "",
+            "prodex24source_full": "",
+            "prodex24source": "",
+            "prodex24medium": "",
+            "prodex24campaign": "",
+            "prodex24content": "",
+            "prodex24term": "",
+            "prodex24page": ""
+        }),
+        success: function (response) {
+            console.log(response);
+        },
+        error: function (error) {
+            console.error(error);
+        }
+    });
+}
 
 // function sendData(firstName, lastName, contactTextArea, contactNumber, emailAddress) {
 //     let fulName = `${firstName + " " + lastName}`;
@@ -237,20 +288,20 @@ $(document).ready(function () {
 
 
 
-function sendData() {
-    let form = $('#contactForm');
+// function sendData() {
+//     let form = $('#contactForm');
 
-    form.on('submit', function (evt){
-        evt.preventDefault();
+//     form.on('submit', function (evt){
+//         evt.preventDefault();
     
-        $.ajax({
-            type: 'POST',
-            url: 'https://jsonplaceholder.typicode.com/posts',
-            data: $(this).serialize(),
-        }).done (function (res) { 
-            console.log(res);
-         })
-    })
-}
+//         $.ajax({
+//             type: 'POST',
+//             url: 'https://jsonplaceholder.typicode.com/posts',
+//             data: $(this).serialize(),
+//         }).done (function (res) { 
+//             console.log(res);
+//          })
+//     })
+// }
 
 
