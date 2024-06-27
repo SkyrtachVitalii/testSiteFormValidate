@@ -15,14 +15,15 @@ function validateForm() {
 
     validateEmail(emailAddress);
     validateFullName(firstName, lastName);
-    console.group("Дані з форми:");
-    console.log(firstName, lastName);
-    console.log(emailAddress);
-    console.log(contactNumber);
-    console.log(contactNumber);
-    console.groupEnd();
+    // console.group("Дані з форми:");
+    // console.log(firstName, lastName);
+    // console.log(emailAddress);
+    // console.log(contactNumber);
+    // console.log(contactNumber);
+    // console.groupEnd();
 
-    sendData(firstName, lastName,  contactTextArea, contactNumber, emailAddress)
+    // sendData(firstName, lastName, contactTextArea, contactNumber, emailAddress)
+    sendData();
 }
 
 function validateEmail(email) {
@@ -54,14 +55,6 @@ tel.addEventListener('keypress', e => {
     if (!/\d/.test(e.key))
         e.preventDefault();
 });
-
-let textArea = document.querySelector('#contactTextArea');
-textArea.addEventListener('focus', _ => {
-    console.log(textArea.value)
-    if (textArea.value.length > 50) {
-
-    }
-})
 
 function validateNumber(phone) {
     if (phone.startsWith('+38') && !phone.startsWith('+380')) {
@@ -131,36 +124,133 @@ $(document).ready(function () {
 });
 
 
-function sendData(firstName, lastName,  contactTextArea, contactNumber, emailAddress) {
-    $.ajax({
-        url: "https://salesme.salesdrive.me/handler/",
-        type: "POST",
-        contentType: "application/json",
-        data: JSON.stringify({
-            "form": "UJ0tY7eMrhkEjVUkfZiNMq6AOnW5HZLgWGEZr9ekcE7shKwQAyu",
-            "getResultData": "",
-            "products": [
-                {
-                    "id": 1,
-                    "name": `${firstName + " " + lastName}`,
-                    "costPerItem": 0,
-                    "amount": 0,
-                    "description": textArea,
-                    "discount": 0,
-                    "sku": 459798465
-                }
-            ],
-            "comment": contactTextArea,
-            "phone": contactNumber,
-            "email": emailAddress
-        }),
-        success: function (response) {
-            console.log(response);
-        },
-        error: function (error) {
-            console.error(error);
-        }
-    });
+// function sendData(firstName, lastName, contactTextArea, contactNumber, emailAddress) {
+//     $.ajax({
+//         url: "https://salesme.salesdrive.me/handler/",
+//         type: "POST",
+//         contentType: "application/json",
+//         data: JSON.stringify({
+//             form: "UJ0tY7eMrhkEjVUkfZiNMq6AOnW5HZLgWGEZr9ekcE7shKwQAyu",
+//             getResultData: "",
+//             products: [
+//                 {
+//                     id: 1,
+//                     name: `${firstName + " " + lastName}`,
+//                     costPerItem: 0,
+//                     amount: 0,
+//                     description: textArea,
+//                     discount: 0,
+//                     sku: 459798465
+//                 }
+//             ],
+//             comment: contactTextArea,
+//             phone: contactNumber,
+//             email: emailAddress
+//         }),
+//         success: function (response) {
+//             console.log(response);
+//         },
+//         error: function (error) {
+//             console.error(error);
+//         }
+//     });
+// }
+
+// function sendData(firstName, lastName, contactTextArea, contactNumber, emailAddress) {
+//     let fulName = `${firstName + " " + lastName}`;
+//     $.ajax({
+//         url: "https://salesme.salesdrive.me/handler/",
+//         type: "POST",
+//         form: "UJ0tY7eMrhkEjVUkfZiNMq6AOnW5HZLgWGEZr9ekcE7shKwQAyu",
+//         contentType: "application/json",
+//         getResultData: "",
+//         xhrFields: {
+//             withCredentials: true
+//         },
+//         data: {
+//             name: fulName,
+//             contactTextArea: contactTextArea,
+//             contactNumber: contactNumber,
+//             emailAddress: emailAddress
+//         },
+//         "Access-Control-Allow-Origin": "*",
+//         "crossDomain": true,
+//         "async": true,
+
+//         success: function (response) {
+//             console.log(response);
+//         },
+//         error: function (error) {
+//             console.error(error);
+//         }
+
+//     }, function (response) {
+//         response => response.json();
+//         console.log(response);
+//     }
+//     );
+
+// console.group("Дані з форми:");
+// console.log(firstName, lastName);
+// console.log(emailAddress);
+// console.log(contactNumber);
+// console.log(contactNumber);
+// console.groupEnd();
+
+
+// }
+
+// jQuery.postCORS = function (url, data, func) {
+//     if (func == undefined) func = function () { };
+//     return $.ajax(
+//         {
+//             form: "UJ0tY7eMrhkEjVUkfZiNMq6AOnW5HZLgWGEZr9ekcE7shKwQAyu",
+//             type: 'POST',
+//             url: url,
+//             data: data,
+//             dataType: 'json',
+//             // contentType: 'application/x-www-form-urlencoded',
+//             contentType: "application/json",
+//             xhrFields: { withCredentials: true },
+//             success: function (res) { func(res) },
+//             error: function () {
+//                 func({})
+//             }
+//         }
+//     );
+// }
+
+
+
+// function sendData() {
+//     const url = 'https://salesme.salesdrive.me/handler/';
+//     const proxyUrl = 'https://api.allorigins.win/get?url=';
+//     const jsonPlaceHolderUrl = "https://jsonplaceholder.typicode.com/posts";
+//     $.postCORS(url, { x: 1 }).done(function (obj) {
+//         if (obj.ok) {
+//             console.log("contactNumber");
+//         }
+//     }).fail(function () {
+//         alert("Error!");
+//     });
+// }
+
+
+
+function sendData() {
+    let form = $('#contactForm');
+
+    form.on('submit', function (evt){
+        evt.preventDefault();
+    
+        $.ajax({
+            type: 'POST',
+            url: 'https://jsonplaceholder.typicode.com/posts',
+            data: $(this).serialize(),
+        }).done (function (res) { 
+            console.log(res);
+         })
+    })
 }
 
 
