@@ -13,7 +13,7 @@
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
-    <script src="../js/coockies.js"></script>
+    <script src="js/coockies.js"></script>
 </head>
 
 <body>
@@ -33,7 +33,7 @@
                                 <li class="menu__item"><a href="#">Page</a></li>
                             </ul>
                         </nav>
-                        <a class="sendButton" href="./contact.html">
+                        <a class="sendButton" href="#">
                             Send form
                         </a>
                     </div>
@@ -47,10 +47,24 @@
             <section class="container containerSpacing text-center">
                 <div class="contactBlock">
                     <div class="contactBlock__item">
+                        <div>
+                            <h1 class="contactBlock__heading">Contact us</h1>
+                            <p class="contactBlock__text">Subheading for description or instructions</p>
+                            <script id="salesdrive_forms_params_1">
+                                var salesdrive_forms_params_1 = {"id": "1", "hash": "RvUC18GiIs9eaSFfJnIKHr9OCZVEMgWX", "modal": "n", "locale": "ua", "defaults": {
+                                    "submit": "", "sd-form-title": "", "fName": "", "lName": "", "phone": "", "email": "", "con_comment": ""
+                                }};
+                            </script>
+                            <script forms-id="1" id="salesdriveforms_script"
+                            async="async" src="https://static.salesdrive.me/salesdriveforms/assets/js/salesdriveforms.js"></script>
+                        </div>
 
-                        <form name="contactForm" id="contactForm" class="contactForm" action="../php/main.php"
+
+
+<!--
+                        <form name="contactForm" id="contactForm" class="contactForm" action="php/main.php"
                             method="post" draggable="false">
-                            <!-- onsubmit="return validateForm()" додай це в тег форм коли зробиш запит в php-->
+                            onsubmit="return validateForm()" додай це в тег форм коли зробиш запит в php
                             <h1 class="contactBlock__heading">Contact us</h1>
                             <p class="contactBlock__text">Subheading for description or instructions</p>
                             <div class="contactBlock__inputs">
@@ -94,6 +108,8 @@
                                 <input class="contactBlock__submit" value="Submit" type="submit"/>
                             </div>
                         </form>
+                        -->
+
                     </div>
                     <div class="contactBlock__item">
                         <div class="background">
@@ -107,8 +123,6 @@
 
         </div>
     </main>
-
-
     <footer>
         <div class="wrapper border-top d-flex">
             <div class="footer__block d-flex flex-column space-between">
@@ -151,7 +165,6 @@
             </div>
         </div>
     </footer>
-
     <script src="../js/main.js"></script>
 </body>
 

@@ -28,7 +28,7 @@
                             <li class="menu__item"><a href="#">Page</a></li>
                             <li class="menu__item"><a href="#">Page</a></li>
                         </nav>
-                        <a class="sendButton" href="./pages/contact.php">
+                        <a class="sendButton" href="./form.php">
                             Send form
                         </a>
                     </div>
@@ -42,7 +42,7 @@
             <section class="container containerSpacing text-center">
                 <h1 class="landingTitle text-center">Landing page title</h1>
                 <p class="landingDescr text-center">And a subheading describing your site, too</p>
-                <a class="sendButton" href="./pages/contact.php">
+                <a class="sendButton" href="./contact.php">
                     Send form
                 </a>
             </section>
