@@ -48,8 +48,9 @@
                 <div class="contactBlock">
                     <div class="contactBlock__item">
 
-                        <form name="contactForm" id="contactForm" class="contactForm" action="/handler/"
-                            onsubmit="return validateForm()" method="post" draggable="false">
+                        <form name="contactForm" id="contactForm" class="contactForm" action="../php/main.php"
+                            method="post" draggable="false">
+                            <!-- onsubmit="return validateForm()" додай це в тег форм коли зробиш запит в php-->
                             <h1 class="contactBlock__heading">Contact us</h1>
                             <p class="contactBlock__text">Subheading for description or instructions</p>
                             <div class="contactBlock__inputs">
@@ -90,8 +91,7 @@
                                         class="" placeholder="Enter your question or message"></textarea>
                                 </div>
 
-                                <input class="contactBlock__submit" value="Submit" type="button"
-                                    onclick="validateForm()" />
+                                <input class="contactBlock__submit" value="Submit" type="submit"/>
                             </div>
                         </form>
                     </div>
